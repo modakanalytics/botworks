@@ -1,0 +1,25 @@
+{
+  "bot_classname": "com.modak.botworks.bots.OnDemandJDBCBot",
+  "thread_pool_size": 1,
+  "bot_heart_beat_frequency_ms": 600000,
+  "consecutive_error_limit": 100,
+  "messagebus_config": {
+    "bot_publish_message_size": 1,
+    "messagebus_classname": "com.modak.botworks.messagebus.kafka.KafkaMessageBusAdapterWithHeartBeat",
+    "messagebus_classname_controller": "com.modak.botworks.messagebus.kafka.KafkaBotControlMessageBusAdapter",
+    "public_key": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/keys/publicKey",
+    "private_key": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/keys/privateKey",
+    "priority_topics": [
+      {
+        "topics": [
+          "bot-os_ondemandjdbc_bot"
+        ],
+        "priority": 1,
+        "group_id": "bot-os-ondemandjdbc_bot_group"
+      }
+    ],
+    "bootstrap_servers": "localhost:9092",
+    "pull": true,
+    "control_topic": "bot-control"
+  }
+}

@@ -1,0 +1,164 @@
+group bot_flow;
+
+doublequotes(item) ::=<<
+"$item$"
+>>
+
+
+metadata_common(message_uuid,bot_uuid,parent_uuid,topic) ::=<<
+"topic": "$topic$",
+"msg_uuid": "$message_uuid$",
+"parent_uuid": "$parent_uuid$",
+"bot_uuid": "$bot_uuid$",
+>>
+
+
+tags_common(parent_metadata,current_tags) ::=<<
+"process_id":$parent_metadata.tags.process_id$,
+"tags": [$parent_metadata.tags.tags:doublequotes();separator=",\n"$,
+         $current_tags:doublequotes();separator=",\n"$
+]
+>>
+
+
+
+jdbc_initial_message(data,process_id) ::=<<
+{
+  "bot_type": "JDBCBot",
+  "metadata": {
+      "topic": "bot-os-jdbcbot",
+      "process_context":"Fetching list of tables for the given source",
+      "tags":{
+       "process_id":$process_id$,
+       "tags": [
+            "Jdbcbot"
+          ]
+      }
+  },
+  "tasks": [
+    {
+      "name": "Fetch list of tables for given source",
+      "processor": {
+        "classname": "com.modak.botworks.bots.processor.NullProcessor",
+        "props": {}
+      },
+      "app_template": {
+              "app_template_group": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/templates/jdbc_bot.stg",
+              "app_template_name": "getListOfTablesforSource"
+      },
+      "data": {
+         "query_input": {
+              "source_name":"$data.source_name$",
+              "schema_name":"$data.schema_name$"
+         },
+         "query_type": "select"
+      },
+      "output_templates": [
+         {
+             "output_template_group": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/templates/bot_flow.stg",
+             "output_template_name": "ondemandjdbc_input_message"
+         }
+      ],
+      "error_templates": []
+    }
+  ]
+}
+>>
+
+ondemandjdbc_input_message(data,message_uuid,bot_uuid,parent_task_start_ts,parent_task_end_ts,parent_metadata,parent_bot_type,parent_task_name,dataObj) ::=<<
+{
+  "bot_type": "OnDemandJDBCBot",
+  "metadata": {
+    "initial_ts":"$parent_task_start_ts$",
+    "end_ts":"$parent_task_end_ts$",
+    "parent_bot_name":"$parent_bot_type$",
+    "parent_task_name":"$parent_task_name$",
+    $metadata_common(message_uuid, bot_uuid, parent_metadata.msg_uuid,"bot-os_ondemandjdbc_bot")$
+    "tags":{$tags_common(parent_metadata,["ondemanjdbcbot"])$},
+ 	  "process_context": "Establish a connection to H2DB and get the table data"
+  },
+  "tasks":[$dataObj:generateListOfTableTask();separator=","$]
+}
+>>
+
+
+generateListOfTableTask(data)::=<<
+{
+      "name": "getDataFromDB",
+      "processor": {
+        "classname": "com.modak.botworks.bots.processor.NullProcessor",
+        "props": {}
+      },
+      "app_template": {
+         "app_template_group": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/templates/jdbc_bot.stg",
+         "app_template_name": "getTableData"
+      },
+      "data":$generateConfigurations(data)$,
+      "output_templates": [{
+         "output_template_group": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/templates/bot_flow.stg",
+         "output_template_name": "csvwriter_input_message"
+         }
+      ],
+      "error_templates": []
+}
+>>
+
+generateConfigurations(data)::=<<
+{
+ "ondemand_config":{
+    "name": "h2_all",
+    "type": "h2",
+    "description": "This is H2 Connection profile",
+    "jdbc_driver": "org.h2.Driver",
+    "jdbc_url": "jdbc:h2:tcp://192.168.1.50:5555/~/h2db/bw_tutorial",
+    "username": "admin",
+    "password": "admin",
+    "encrypted_password": "N",
+    "minConnectionsPerPartition":"1",
+    "maxConnectionsPerPartition":"1"
+ },
+ "table_info":{
+  "schema_name":"$data.schema_name$",
+  "table_name":"$data.table_name$"
+ }
+}
+>>
+
+csvwriter_input_message(data,message_uuid,bot_uuid,parent_task_start_ts,parent_task_end_ts,parent_metadata,parent_bot_type,parent_task_name,dataObj) ::=<<
+{
+    "bot_type": "CSVFileWriterBot",
+    "metadata": {
+	"initial_ts":"$parent_task_start_ts$",
+	"end_ts":"$parent_task_end_ts$",
+	"parent_bot_name":"$parent_bot_type$",
+	"parent_task_name":"$parent_task_name$",
+	$metadata_common(message_uuid, bot_uuid, parent_metadata.msg_uuid,"bot-os_csvwriter_bot")$
+    	"tags":{$tags_common(parent_metadata,["csvwriter_bot"])$},   	  
+        "process_context": "Write table data to a CSV file"
+    },
+    "tasks": [
+      {
+        "name": "write_data_to_a_file",
+        "processor": {
+          "classname": "com.modak.botworks.bots.processor.NullProcessor",
+          "props": {}
+        },
+        "app_template": {
+           "app_template_group": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/templates/bot_flow.stg",
+           "app_template_name": "doNothingTemplate"
+        },
+        "data":{
+           "dataList":$data$
+        },
+        "output_templates": [],
+        "error_templates": []
+      }
+    ]
+}
+>>
+
+
+doNothingTemplate(data) ::=<<
+doNothing
+>>
+

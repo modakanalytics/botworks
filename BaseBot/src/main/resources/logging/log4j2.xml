@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    <RollingFile fileName="./logs/botworks.log"
+      filePattern="./logs/botworks-%d{MM-dd-yyyy}-%i.log"
+      name="A1">
+      <PatternLayout>
+        <Pattern>"%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"</Pattern>
+      </PatternLayout>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="1 GB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="100"/>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="debug">
+      <AppenderRef ref="A1"/>
+      <AppenderRef ref="Console"/>
+    </Root>
+    <Logger level="debug" name="com.modak">
+      <AppenderRef ref="A1"/>
+      <AppenderRef ref="Console"/>
+    </Logger>
+  </Loggers>
+</Configuration>

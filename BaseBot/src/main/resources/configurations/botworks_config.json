@@ -1,0 +1,6 @@
+{
+ "log4j_config_file_with_path":"<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/logging/log4j2.xml",
+ "factory_bot_config_file_with_path":"<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/configurations/factory_bot_config.json",
+ "producer_config_file_with_path":"<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/configurations/producer_config_spawn_initial_bots.json",
+ "message_listener_config_file_with_path":"<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/configurations/message_listener_config.json"
+}
