@@ -12,7 +12,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <kafka.version>0.11.0.0</kafka.version>
     <log4j.core.version>2.9.1</log4j.core.version>
-    <mqttv3.version>1.2.0</mqttv3.version>
     <string.template.version>4.0.8</string.template.version>
     <commons.codec.version>1.10</commons.codec.version>
     <commons.lang3.version>3.6</commons.lang3.version>
@@ -58,11 +57,6 @@
       <version>${commons.codec.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.paho</groupId>
-      <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-      <version>${mqttv3.version}</version>
-    </dependency>
-    <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>${commons-io.version}</version>
@@ -90,13 +84,6 @@
     <repository>
       <id>eclipse.org</id>
       <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
-    </repository>
-    <repository>
-      <id>local_repo</id>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <url>file://${maven.local.repo}</url>
     </repository>
   </repositories>
   <build>
