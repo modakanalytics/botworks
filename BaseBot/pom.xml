@@ -5,7 +5,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.modak.botworks.bots./groupId>
+  <groupId>com.modak.botworks.bots</groupId>
   <artifactId>BaseBot</artifactId>
   <version>1.0</version>
   <properties>
@@ -80,10 +80,6 @@
     <repository>
       <id>cloudera</id>
       <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
-    </repository>
-    <repository>
-      <id>eclipse.org</id>
-      <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
     </repository>
   </repositories>
   <build>
