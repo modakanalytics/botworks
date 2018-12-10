@@ -17,7 +17,7 @@ package com.modak.botworks.messagebus;
 
 /**
  * All Bots need to implement the MessageReciever interface.  This assumes that the underlying messaging system conforms
- * to a Pub/Sub type of model like MQTT messaging.
+ * to a Pub/Sub type of model like Kafka messaging.
  *
  * @author modakanalytics
  * @version 1.0
