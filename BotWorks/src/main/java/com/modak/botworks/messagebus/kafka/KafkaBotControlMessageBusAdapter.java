@@ -16,38 +16,28 @@
 
 package com.modak.botworks.messagebus.kafka;
 
-import com.modak.utils.MessageUtils;
 import com.modak.botworks.bots.common.BotCommon;
 import com.modak.botworks.messagebus.BotControlMessageChannel;
 import com.modak.botworks.messagebus.BotsMessageEncryptionUtils;
 import com.modak.botworks.messagebus.ControlMessageBusAdapter;
 import com.modak.botworks.messagebus.MessageBusException;
 import com.modak.encryption.RSAEncryptionUtils;
-import java.io.StreamCorruptedException;
-import java.nio.charset.StandardCharsets;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
-import java.util.UUID;
-import java.util.regex.Pattern;
-
-import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
+import com.modak.utils.*;
+import com.modak.utils.MessageUtils;
+import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.logging.log4j.LogManager;
 import org.json.JSONObject;
-import com.modak.utils.*;
+
+import java.io.StreamCorruptedException;
+import java.nio.charset.StandardCharsets;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * This class gives the Kafka implementation of ControlMessageBusAdapter for the Pub/Sub type model

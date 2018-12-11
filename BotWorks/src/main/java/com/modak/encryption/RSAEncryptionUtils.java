@@ -17,6 +17,9 @@
 package com.modak.encryption;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.nio.file.Files;
 import java.security.KeyFactory;
@@ -24,8 +27,6 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * This class is used for generating RSA keys i.e., public and private keys and encrypting and decrypting the password

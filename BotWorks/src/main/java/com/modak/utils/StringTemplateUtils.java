@@ -16,11 +16,12 @@
 
 package com.modak.utils;
 
-import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroupFile;
 import org.stringtemplate.v4.StringRenderer;
+
+import java.util.HashMap;
 
 /**
  * This class is used to render the templates

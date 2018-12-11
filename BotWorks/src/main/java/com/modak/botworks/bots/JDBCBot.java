@@ -16,10 +16,10 @@
 
 package com.modak.botworks.bots;
 
-import com.modak.utils.MessageUtils;
 import com.modak.botworks.bots.common.BotCommon;
 import com.modak.utils.JDBCConnectionManager;
 import com.modak.utils.JSONUtils;
+import com.modak.utils.MessageUtils;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.MapListHandler;

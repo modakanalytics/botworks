@@ -15,9 +15,10 @@
 */
 package com.modak.botworks.messagebus;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
-import org.json.JSONObject;
 
 /**
  * This interface defines a generic messaging framework using Pub/Sub type model under Bots eco system.

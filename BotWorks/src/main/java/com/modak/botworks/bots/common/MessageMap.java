@@ -62,7 +62,7 @@ public class MessageMap extends HashMap {
      * @return Object   the value of the provided key entry for the Map with the modified behaviour
      */
     @Override
-    public java.lang.Object get(java.lang.Object key) {
+    public Object get(Object key) {
         if (key.toString().equals(MessageMap.KEY_DYNAMIC_UUID)) {
             put(MessageMap.KEY_DYNAMIC_UUID, (Object) UUID.randomUUID().toString());
         }
@@ -72,6 +72,6 @@ public class MessageMap extends HashMap {
         else if (key.toString().equals(MessageMap.KEY_TS)) {
             return super.get(MessageMap.KEY_INITIAL_TS);
         }
-        return (java.lang.Object) super.get(key);
+        return (Object) super.get(key);
     }
 }

@@ -15,17 +15,12 @@
 */
 package com.modak.utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.logging.log4j.LogManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import scala.util.parsing.json.JSON;
+
+import java.util.*;
 
 
 /**

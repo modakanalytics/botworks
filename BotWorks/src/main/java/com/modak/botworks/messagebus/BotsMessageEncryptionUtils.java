@@ -18,10 +18,11 @@ package com.modak.botworks.messagebus;
 
 import com.modak.compression.NullCompressor;
 import com.modak.encryption.EncryptionUtils;
-import java.security.PrivateKey;
-import java.security.PublicKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 /**
  * This Utility class contains methods to do compression-encryption and decryption-uncompression of kafka messages. For

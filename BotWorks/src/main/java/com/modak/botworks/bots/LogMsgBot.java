@@ -17,12 +17,11 @@
 package com.modak.botworks.bots;
 
 
-import com.modak.botworks.bots.BaseBot;
-import com.modak.botworks.bots.BotException;
 import com.modak.botworks.bots.common.BotCommon;
 import com.modak.utils.MiscUtils;
-import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
+
+import java.util.HashMap;
 
 /**
  * This class starts LogMsgBot with the supplied properties

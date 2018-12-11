@@ -16,8 +16,6 @@
 
 package com.modak.compression;
 
-import java.nio.charset.StandardCharsets;
-
 /**
  * This Utility class contains methods to compress bot messages which are of String and BytArray messages.
  * This is taken as a part of ModakUtils utility JAR, presented here for

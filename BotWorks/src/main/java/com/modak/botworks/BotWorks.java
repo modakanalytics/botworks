@@ -19,18 +19,16 @@ package com.modak.botworks;
 import com.modak.botworks.bots.Bot;
 import com.modak.botworks.bots.common.BotCommon;
 import com.modak.utils.JSONUtils;
-
-import java.io.File;
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
 import com.modak.utils.SpawnBotsUtility;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.Configurator;
+
+import java.io.File;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * BotWorks is the main class of the BotWorks ecosystem.  It initializes class that monitors and logs

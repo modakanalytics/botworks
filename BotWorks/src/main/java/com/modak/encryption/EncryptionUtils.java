@@ -16,15 +16,17 @@
 
 package com.modak.encryption;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 /**
  * This Utility class contains methods to do encryption of large bytes where a combination of Symmetric and Asymmetric
  * encryption is used. This is taken as a part of ModakUtils utility JAR, presented here for
  */
+
 /**
  * @author modakanalytics
  * @version 1.0

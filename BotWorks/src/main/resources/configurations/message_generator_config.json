@@ -1,4 +1,0 @@
-{
-  "log4j_config_file_with_path":"<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/logging/log4j2.xml",
-  "producer_config_file_with_path":"<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/configurations/producer_config_message_generator.json"
-}
