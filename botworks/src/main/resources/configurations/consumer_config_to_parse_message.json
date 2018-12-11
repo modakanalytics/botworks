@@ -1,8 +1,0 @@
-{
-  "topics": [
-    "bot-os.*"
-  ],
-  "group_id": "bot-os_consumer_group",
-  "bootstrap_servers": "localhost:9092",
-  "private_key": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/keys/privateKey"
-}
