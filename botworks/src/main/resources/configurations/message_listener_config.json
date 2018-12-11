@@ -1,0 +1,4 @@
+{
+  "log4j_config_file_with_path": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/logging/consumer/log4j2.xml",
+  "consumer_config_file_with_path": "<REPLACE_WITH_ABSOLUTE_PATH_TO_PARENT_OF_RESOURCES_DIRECTORY>/resources/configurations/consumer_config_to_parse_message.json"
+}
