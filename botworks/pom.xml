@@ -22,6 +22,8 @@
         <org.json.version>20171018</org.json.version>
         <hikaricp.version>2.7.4</hikaricp.version>
         <commons.dbutils.version>1.6</commons.dbutils.version>
+        <postgresql.version>42.1.4</postgresql.version>
+        <h2db.version>1.4.197</h2db.version>
     </properties>
     <dependencies>
         <dependency>
@@ -74,6 +76,16 @@
             <artifactId>ST4</artifactId>
             <version>${string.template.version}</version>
         </dependency>
+        <dependency>
+          <groupId>org.postgresql</groupId>
+          <artifactId>postgresql</artifactId>
+          <version>${postgresql.version}</version>
+       </dependency>
+       <dependency>
+           <groupId>com.h2database</groupId>
+           <artifactId>h2</artifactId>
+           <version>${h2db.version}</version>
+      </dependency>
     </dependencies>
     <repositories>
         <repository>
