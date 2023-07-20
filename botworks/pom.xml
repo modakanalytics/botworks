@@ -19,7 +19,7 @@
         <commons.codec.version>1.10</commons.codec.version>
         <commons.lang3.version>3.6</commons.lang3.version>
         <commons-io.version>2.5</commons-io.version>
-        <org.json.version>20171018</org.json.version>
+        <org.json.version>20230227</org.json.version>
         <hikaricp.version>2.7.4</hikaricp.version>
         <commons.dbutils.version>1.6</commons.dbutils.version>
         <postgresql.version>42.1.4</postgresql.version>
