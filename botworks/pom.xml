@@ -13,7 +13,7 @@
     <version>1.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kafka.version>0.11.0.0</kafka.version>
+        <kafka.version>1.0.0.2.6.5.0-292</kafka.version>
         <log4j.core.version>2.9.1</log4j.core.version>
         <string.template.version>4.0.8</string.template.version>
         <commons.codec.version>1.10</commons.codec.version>
