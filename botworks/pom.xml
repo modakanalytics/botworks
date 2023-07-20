@@ -22,7 +22,7 @@
         <org.json.version>20171018</org.json.version>
         <hikaricp.version>2.7.4</hikaricp.version>
         <commons.dbutils.version>1.6</commons.dbutils.version>
-        <postgresql.version>42.1.4</postgresql.version>
+        <postgresql.version>42.3.8</postgresql.version>
         <h2db.version>1.4.197</h2db.version>
     </properties>
     <dependencies>
