@@ -90,7 +90,7 @@
     <repositories>
         <repository>
             <id>maven Central</id>
-            <url>http://central.maven.org/maven2/</url>
+            <url>https://central.maven.org/maven2/</url>
         </repository>
         <repository>
             <id>cloudera</id>
